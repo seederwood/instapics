@@ -13,6 +13,7 @@
 //= require rails-ujs
 //= require jquery
 //= require bootstrap-sprockets
+//= require masonry/jquery.masonry
 //= require gritter
 //= require jquery_ujs
 //= require turbolinks

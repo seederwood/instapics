@@ -1,10 +1,20 @@
-= image_tag @picture.image.url
-%h1= @picture.title
-%p= @picture.description
-%p
-  Posted by
-  = @picture.user.user_name
+#pic_show.row
+  .col-md-6.col-md-offset-3
+    .panel.panel-default
+      .panel.heading.pic_image
+        = image_tag @picture.image.url
+      .panel-body
+        %h1= @picture.title
+        %p= @picture.description
+      .panel-footer
+        .row
+          .col-md-6
+            %p.user
+              Posted by
+              = @picture.user.user_name
 
-= link_to 'Back', root_path
-= link_to 'Edit Picture', edit_picture_path
-= link_to 'Delete Picture',  picture_path, method: :delete, data: { confirm: 'Do you really want to delete this picture?' }
+          .col-md-6
+            .btn-group.pull-right
+              - if user_signed_in?
+                = link_to 'Edit Picture', edit_picture_path, class: 'btn btn-info'
+                = link_to 'Delete Picture',  picture_path, method: :delete, data: { confirm: 'Do you really want to delete this picture?' }, class: 'btn btn-danger'
