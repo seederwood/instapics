@@ -2,7 +2,7 @@
   .col-md-6.col-md-offset-3
     .panel.panel-default
       .panel.heading.pic_image
-        = image_tag @picture.image.url
+        = image_tag @picture.image.url(:large)
       .panel-body
         %h1= @picture.title
         %p= @picture.description
@@ -15,6 +15,10 @@
 
           .col-md-6
             .btn-group.pull-right
+              = link_to like_picture_path(@picture), method: :put, class: 'btn btn-default' do
+                %span.glyphicon.glyphicon-heart
+                = @picture.get_upvotes.size
+
               - if user_signed_in?
                 = link_to 'Edit Picture', edit_picture_path, class: 'btn btn-info'
                 = link_to 'Delete Picture',  picture_path, method: :delete, data: { confirm: 'Do you really want to delete this picture?' }, class: 'btn btn-danger'
