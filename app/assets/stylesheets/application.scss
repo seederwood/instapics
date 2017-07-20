@@ -16,3 +16,12 @@
 @import "bootstrap";
 @import "gritter";
 @import "bourbon";
+
+#edit_page {
+  .current_image {
+    img {
+      display: block;
+      margin: 20px 0;
+    }
+  }
+}
