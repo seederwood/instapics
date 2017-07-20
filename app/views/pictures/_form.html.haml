@@ -1,11 +1,8 @@
 = simple_form_for @picture, html: { multipart: true} do |f|
   - if @picture.errors.any?
     #errors
-    = pluralize(@picture.errors.count, 'error')
-    prevented this Picture from saving
-    %ul
-      - @picture.errors.full_messages do |error|
-        %li= error
+    - @picture.errors.full_messages do |error|
+      = js add_gritter(error, title: 'InstaPics Notification', sticky: false)
   
   .form-group
     = f.input :title, input_html: { class: 'form-control' }
