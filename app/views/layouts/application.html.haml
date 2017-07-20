@@ -8,7 +8,10 @@
 
 
 %body
- 
-  = yield
 
-  = render 'shared/alerts'
+  = render 'shared/nav'
+
+  .container
+    = yield
+
+    = render 'shared/alerts'
