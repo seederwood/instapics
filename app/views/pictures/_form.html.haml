@@ -1,10 +1,10 @@
 = simple_form_for @picture, html: { multipart: true} do |f|
   - if @picture.errors.any?
     #errors
-    = pluralize(@picture.errors.coount, 'error')
+    = pluralize(@picture.errors.count, 'error')
     prevented this Picture from saving
     %ul
-      - @picture.errors.full_message do |error|
+      - @picture.errors.full_messages do |error|
         %li= error
   
   .form-group
